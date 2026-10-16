@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Vite
+.vite/
+
+# Environment / local config (never commit real IPs or secrets)
+.env
+.env.local
+.env.*.local
+*.local
+
+# Android / Capacitor
+apps/controller/android/.gradle/
+apps/controller/android/app/build/
+apps/controller/android/build/
+apps/controller/android/local.properties
+*.keystore
+*.jks
+*.pepk
+*.p12
+*.hprof
+signing.properties
+
+# Signing credentials & keys
+*.key
+*.pem
+*.p8
+id_rsa*
+secrets/
+private/
+
+# Logs & diagnostics
+*.log
+npm-debug.log*
+logs/
+*.diag.json
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Test / coverage
+coverage/
+.vitest/
+
+# Misc
+*.tgz
+.cache/
+tmp/

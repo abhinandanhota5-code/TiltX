@@ -1,0 +1,44 @@
+{
+  "name": "tiltx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TiltX — turn an Android phone into a real-time motion controller for a browser racing game",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "server"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "prepare:shared": "npm run build -w @tiltx/shared",
+    "postinstall": "npm run build -w @tiltx/shared",
+    "dev": "npm run prepare:shared && concurrently -k -n server,game,controller -c magenta,cyan,green \"npm:dev:server\" \"npm:dev:game\" \"npm:dev:controller\"",
+    "dev:server": "npm run dev -w @tiltx/server",
+    "dev:game": "npm run dev -w @tiltx/game",
+    "dev:controller": "npm run dev -w @tiltx/controller",
+    "start:server": "npm run start -w @tiltx/server",
+    "typecheck": "npm run prepare:shared && npm run typecheck --workspaces --if-present",
+    "test": "vitest run",
+    "test:unit": "vitest run packages/shared server/tests/unit apps/game/src",
+    "test:integration": "vitest run server/tests/integration",
+    "test:watch": "vitest",
+    "build": "npm run prepare:shared && npm run build -w @tiltx/server && npm run build -w @tiltx/game && npm run build -w @tiltx/controller",
+    "build:server": "npm run build -w @tiltx/server",
+    "build:game": "npm run prepare:shared && npm run build -w @tiltx/game",
+    "build:controller": "npm run prepare:shared && npm run build -w @tiltx/controller",
+    "android:init": "npm run build:controller && node scripts/ensure-android.mjs",
+    "android:sync": "npm run build:controller && node scripts/ensure-android.mjs && npm run -w @tiltx/controller cap:sync",
+    "android:apk": "npm run android:sync && cd apps/controller/android && ./gradlew assembleDebug",
+    "lan:ip": "node scripts/lan-ip.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "concurrently": "^9.2.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0b0f17;
+  color: #e8edf7;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overscroll-behavior: none;
+}
+
+#root,
+.app {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hud-top,
+.hud-bottom {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(10, 12, 18, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 12px;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  backdrop-filter: blur(6px);
+}
+
+.card--wide {
+  min-width: 160px;
+}
+
+.label {
+  font-size: 0.68rem;
+  color: #93a1bd;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+.unit {
+  font-size: 0.7rem;
+  color: #93a1bd;
+}
+
+.big {
+  font-size: 2.4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+}
+
+.small {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.note {
+  font-size: 0.64rem;
+  color: #93a1bd;
+}
+
+.mono {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.16em;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1200px 600px at 50% 0, rgba(52, 211, 153, 0.16), transparent 60%), rgba(8, 10, 16, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  pointer-events: all;
+}
+
+.overlay-card {
+  max-width: 520px;
+  background: rgba(14, 16, 24, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.overlay-card h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.overlay-card p {
+  margin: 0;
+  color: #93a1bd;
+  line-height: 1.6;
+}
+
+.qr {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.instructions {
+  margin: 0;
+  padding-left: 18px;
+  color: #c9d4f3;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.button {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, #3ddc9a, #1fa876);
+  color: #04150e;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
+  background: rgba(10, 12, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  white-space: nowrap;
+}

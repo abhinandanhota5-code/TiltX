@@ -1,0 +1,31 @@
+{
+  "name": "@tiltx/controller",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TiltX mobile motion controller (web + Capacitor Android)",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "cap:sync": "cap sync android",
+    "preview": "vite preview --host",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
+    "@capacitor/motion": "^7.0.0",
+    "@tiltx/shared": "*",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "socket.io-client": "^4.8.4"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.2.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "@vitejs/plugin-react": "^5.1.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
+  }
+}
